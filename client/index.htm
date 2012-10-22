@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Ego.js</title>
+		<script src="jquery.min.js"></script>
+		<script src="script.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	</head>
+	<body>
+
+		<div id="bottomBar"><p id="addWidget">Add widget</p></div>
+
+		<div id="addWidgetBox">
+			<a id="closeAddWidgetBox" href="#">Close</a>
+			<h2>Add widget</h2>
+			<select id="type">
+				<option value="twitter">Twitter</option>
+				<option value="analytics">Google Analytics</option>
+			</select>
+
+			<div id="twitter_type">
+				This only works with public twitter profiles.<br />
+				Username: <input type="text" id="twitter_username" /><br />
+			</div>
+			<div id="analytics_type" style="display:none;">
+				Username: <input type="email" id="analytics_username" /><br />
+				Password: <input type="password" id="analytics_password" /><br />
+				Profile ID: <input type="number" id="analytics_profileid" /><br />
+				Widget name: <input type="text" id="analytics_trackername" /><br />
+			</div>
+
+			<input type="submit" value="Create" id="addWidgetSubmit" />
+		</div>
+	</body>
+</html>
