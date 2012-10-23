@@ -3,6 +3,8 @@
 ##What?
 Ego.js is a simple Node web app that lets you track statistics from your twitter and analytics (More services to come, feel free to add one yourself, just do a pull request). It's optimized for iPhone like displays.
 
+![Ego.js](https://dl.dropbox.com/u/29198/ego.js.png "Screenshot of Ego.js")
+
 ##Why?
 Friday the 19th of October 2012 the awesome app Ego for iPhone was temporarily discontinued, and I didn't like that one bit. I read the news while on a 5 hour train, and though I could make my own replacement while they rewrite their own app. So that's what I did. It took a bit longer than the 5 hour trip though.
 
