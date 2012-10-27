@@ -10,6 +10,16 @@ body {
 	background:#2b2a2a;
 	text-align:right;
 	width:100%;
+	color:#fff;
+	font-family:"Helvetica Neue",sans-serif;
+	font-size:12px;
+	line-height:20px;
+}
+
+#bottomBar #settings {
+	text-align:left;
+	float:left;
+	padding-left:3px;
 }
 
 #addWidget {
@@ -28,6 +38,17 @@ body {
 	bottom:0;
 	right:0;
 	background:#fff;
+	padding:10px;
+}
+
+#settingsBox {
+	display:none;
+	background:#fff;
+	position:absolute;
+	left:0;
+	top:0;
+	bottom:0;
+	right:0;
 	padding:10px;
 }
 

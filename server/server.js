@@ -41,7 +41,8 @@ http.createServer(function(request, response) {
 				file = 'style.css';
 				content_type = 'text/css';
 			}
-			fs.readFile('../client/'+file, 'UTF-8', function(err, data) {
+
+			fs.readFile(__dirname+'/..'+'/client/'+file, 'UTF-8', function(err, data) {
 				response.writeHead(200, {'Content-Type': content_type});
 				response.end(data);
 			});

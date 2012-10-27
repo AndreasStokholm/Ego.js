@@ -5,14 +5,18 @@
 		<script src="jquery.min.js"></script>
 		<script src="script.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<link rel="apple-touch-icon" id="iconContainer" href="" />
 	</head>
 	<body>
 
-		<div id="bottomBar"><p id="addWidget">Add widget</p></div>
+		<div id="bottomBar">
+			<p id="settings">Settings</p>
+			<p id="addWidget">Add widget</p>
+		</div>
 
 		<div id="addWidgetBox">
-			<a id="closeAddWidgetBox" href="#">Close</a>
+			<a id="closeAddWidgetBox" href="">Close</a>
 			<h2>Add widget</h2>
 			<select id="type">
 				<option value="twitter">Twitter</option>
@@ -32,5 +36,12 @@
 
 			<input type="submit" value="Create" id="addWidgetSubmit" />
 		</div>
+
+		<div id="settingsBox">
+			<a id="closeSettingsBox" href="">Close</a>
+			<h2>Settings</h2>
+			<a href="" id="resetAllSettings">Reset all widgets</a>
+		</div>
+
 	</body>
 </html>
