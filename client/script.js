@@ -15,7 +15,7 @@ function datastore() {
 					localStorage.clear();
 
 					// Try and save this again.
-					save_locally(key, value);
+					this.set(key, value);
 				}
 			} else {
 				return false;
@@ -98,17 +98,26 @@ function widgets() {
 			if (widget.type == 'twitter') {
 
 				this.getData('twitter', widget, function(data) {
+					if (data.error !== 0) {
+						data.followers = 'Error';
+					}
 					$('body').append(
 						'<div class="widget twitter">'
 							+'<div class="widgetIdentifier"><span>Twitter</span><span class="widgetName">'+data.real_name+'</div>'
 							+'<span class="rightMetric">Followers <span class="metric">'+data.followers+'</span></span>'+
 						'</div>'
-						);
+					);
+
+
 				});
 
 			} else if (widget.type == 'analytics') {
 
 				this.getData('analytics', widget, function(data) {
+					if (data.error !== 0) {
+						data.pageviews = 'Error';
+						data.visits = '';
+					}
 					$('body').append(
 					'<div class="widget analytics">'
 						+'<div class="widgetIdentifier"><span>Google Analytics</span><span class="widgetName">'+widget.tracker_name+'</div>'
@@ -127,9 +136,13 @@ function widgets() {
 
 	this.getData = function(type, data, callback) {
 
-		$.get(location.href+type, data, function(data) {
-			callback(data);
-		}, 'json');
+		try {
+			$.get(location.href+type, data, function(data) {
+				callback(data);
+			}, 'json');
+		} catch(e) {
+			callback({'error': 1});
+		}
 
 	}
 
@@ -230,8 +243,6 @@ $(document).ready(function() {
 		var indexStart = 0;
 		while (i < widgetAmt) {
 
-			console.log(indexStart);
-
 			var color;
 			widget = JSON.parse(d.get(i));
 
@@ -252,7 +263,6 @@ $(document).ready(function() {
 		}
 
 		$('#iconContainer').attr('href', 'data:image/png;base64,'+p.getBase64());
-		//document.write('<img src="data:image/png;base64,'+p.getBase64()+'">');
 	}, 500);
 
 });

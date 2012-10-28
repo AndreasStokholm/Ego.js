@@ -2,7 +2,8 @@
 	"name": "Ego.js",
 	"version": "0.1",
 	"dependencies": {
-		"googleanalytics": "0.2.0"
+		"googleanalytics": "0.2.0",
+		"mime": "1.2.7"
 	},
 	"contributors": [
 		{
