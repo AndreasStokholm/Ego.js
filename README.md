@@ -13,6 +13,10 @@ Simply run the server.js file, like shown below. When you've started you're runn
 
 `node server.js`
 
+If port 8080 is taken on your server, then just supply a -p and a port number after the file name, like this:
+
+`node server.js -p 1234`
+
 ##Widgets
 A bit of info on how to add widgets. They're stored in localStorage, on your device. Beware that potential passwords are sent as cleartext in the URL.
 

@@ -3,6 +3,14 @@ var http = require('http'),
 	querystring = require('querystring'),
 	mime = require('mime');
 
+// Figure out what port to run on
+var runOnPort = 8080;
+if (process.argv[2] == '-p' && process.argv[3] !== undefined) {
+	if (parseInt(process.argv[3])) {
+		runOnPort = parseInt(process.argv[3]);
+	}
+}
+
 // Find all widgets
 var widgets = [],
 	widgetRoutes = [];
@@ -62,4 +70,4 @@ http.createServer(function(request, response) {
 		response.end('Not found.');
 	}
 
-}).listen(8080);
+}).listen(runOnPort, function() { console.log('Ego.js running on port '+runOnPort) });
