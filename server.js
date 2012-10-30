@@ -15,8 +15,8 @@ if (process.argv[2] == '-p' && process.argv[3] !== undefined) {
 var widgets = [],
 	widgetRoutes = [];
 
-fs.readdirSync('./widgets').forEach(function(file) {
-	var widget = require('./widgets/' + file).widget;
+fs.readdirSync(__dirname+'/widgets').forEach(function(file) {
+	var widget = require(__dirname+'/widgets/' + file).widget;
 	var w = new widget();
 	var registeredWidget = w.registerWidget();
 	registeredWidget.instance = w;
@@ -53,14 +53,14 @@ http.createServer(function(request, response) {
 				request.url = '/index.htm';
 			}
 
-			fs.readFile('./client'+request.url, 'UTF-8', function(err, data) {
+			fs.readFile(__dirname+'/client'+request.url, 'UTF-8', function(err, data) {
 
 				if (err) {
 					response.writeHead(404, {'Content-Type': 'text/html'});
 					response.end('<h1>404</h1>No data at endpoint (Not found).');
 				}
 
-				response.writeHead(200, {'Content-Type': mime.lookup('./client'+request.url)});
+				response.writeHead(200, {'Content-Type': mime.lookup(__dirname+'/client'+request.url)});
 				response.end(data);
 			});
 		}
